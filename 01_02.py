@@ -1,4 +1,4 @@
-thefilepath = "01_01_Data.txt"
+thefilepath = "01_02_Data_Test.txt"
 
 with open(thefilepath) as f:
     file_list = f.readlines()
@@ -8,14 +8,29 @@ first_digits = []
 last_digits = []
 final_digits = []
 
+text_digit_set = {'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'}
+
+s = "abcdoneeftwog"
+
+
+#Get location of all/any text-digits in line:
+for i, line in enumerate(file_list):
+    print("LINE: ", i+1)
+    for text_digit in text_digit_set:
+        text_digit_location = line.find(text_digit)
+        if text_digit_location >-1:
+            print("For digit:", text_digit, "location: ", text_digit_location)
+
+"""
+
+
 #Get first digits:
 for line in file_list:
-    #digits.append(line[0])
-    #digits.append(line[-1])
     for char in line:
         if char.isdigit():
             first_digits.append(char)
             break
+        #check
 
     #print(first_digits)
 
@@ -49,3 +64,4 @@ print(cumulative_total)
 
 
 #print (digits)
+"""
