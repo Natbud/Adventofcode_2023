@@ -10,7 +10,7 @@ final_digits = []
 
 text_digit_set = {'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'}
 
-s = "abcdoneeftwog"
+text_locations = []
 
 
 #Get location of all/any text-digits in line:
@@ -20,6 +20,7 @@ for i, line in enumerate(file_list):
         text_digit_location = line.find(text_digit)
         if text_digit_location >-1:
             print("For digit:", text_digit, "location: ", text_digit_location)
+            #store text_digit and text_digit_location pairs (dictionary?   List of lists?)
 
 """
 
