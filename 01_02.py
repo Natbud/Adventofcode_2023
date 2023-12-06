@@ -4,9 +4,6 @@ with open(thefilepath) as f:
     file_list = f.readlines()
     file_list = [line.strip() for line in file_list]   #strips out the /n character from each line
 
-all_digits = []
-first_digits = []
-last_digits = []
 final_digits = []
 text_digit_list = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 text_locations = []
@@ -14,17 +11,18 @@ text_locations = []
 #Start processing each line:
 for i, line in enumerate(file_list):
     ordered_digits = [] 
+
     #Get location of all/any text-digits in line:
     for p, text_digit in enumerate(text_digit_list):
         text_digit_location = line.find(text_digit) # returns index of a string within a line
         if text_digit_location >-1:
             digit_with_location = (text_digit_location,p+1) # bring location and digit_text together
             ordered_digits.append(digit_with_location) # add those to a list
-            
+      
     #Get location of all integer digits in line:
-    for char in line:
+    for c, char in enumerate(line):
         if char.isdigit():
-            digit_location = line.find(char)
+            digit_location = c   # line.find(char) just doesn't work to return position of digits
             digit_with_location = (digit_location,int(char)) # bring location and digit together
             ordered_digits.append(digit_with_location) # add those to list
     
@@ -46,27 +44,3 @@ for value in final_digits:
     cumulative_total += int(value)
 
 print(cumulative_total)
-
-
-
-
-"""
-for i,number in enumerate(first_digits):
-    sum = number + last_digits[i]
-    final_digits.append(sum)
-
-#print(final_digits)
-
-#Add up all final values:
-
-cumulative_total = 0
-
-for value in final_digits:
-    cumulative_total += int(value)
-
-print(cumulative_total)
-    
-
-
-#print (digits)
-"""
