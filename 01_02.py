@@ -1,3 +1,4 @@
+import re
 thefilepath = "01_02_Data.txt"
 
 with open(thefilepath) as f:
@@ -14,7 +15,12 @@ for i, line in enumerate(file_list):
 
     #Get location of all/any text-digits in line:
     for p, text_digit in enumerate(text_digit_list):
-        text_digit_location = line.find(text_digit) # returns index of a string within a line
+        #text_digit_location = line.find(text_digit) # returns index of a string within a line
+        
+        #Trying a different approach:
+        for match in re.finditer(text_digit, line):
+            text_digit_location = (match.start())
+
         if text_digit_location >-1:
             digit_with_location = (text_digit_location,p+1) # bring location and digit_text together
             ordered_digits.append(digit_with_location) # add those to a list
