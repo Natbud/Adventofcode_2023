@@ -21,9 +21,9 @@ for i, line in enumerate(file_list):
         for match in re.finditer(text_digit, line):
             text_digit_location = (match.start())
 
-        if text_digit_location >-1:
-            digit_with_location = (text_digit_location,p+1) # bring location and digit_text together
-            ordered_digits.append(digit_with_location) # add those to a list
+            if text_digit_location >-1:
+                digit_with_location = (text_digit_location,p+1) # bring location and digit_text together
+                ordered_digits.append(digit_with_location) # add those to a list
       
     #Get location of all integer digits in line:
     for c, char in enumerate(line):
@@ -34,7 +34,7 @@ for i, line in enumerate(file_list):
     
     #final processing for line:
     sorted_digits = sorted(ordered_digits) # sort the list (lowest location first)      
-    print("Line: ",i+1, "orderd_digits: ", sorted_digits)
+    #print("Line: ",i+1, "orderd_digits: ", sorted_digits)
 
     digit_pair = (str(sorted_digits[0][1]),str(sorted_digits[-1][1])) # bring first and last digits together
     joined_pair = "".join(digit_pair)
@@ -42,7 +42,7 @@ for i, line in enumerate(file_list):
 
 
 #Add all pairs of digits together:
-print(final_digits) #check contents of final_digits
+#print(final_digits) #check contents of final_digits
 
 cumulative_total = 0
 
