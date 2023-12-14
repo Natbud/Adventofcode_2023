@@ -19,10 +19,12 @@ np_grid = np.zeros((file_list_row_len,file_list_col_len))
 for r, row in enumerate(file_list):
     for d, digit in enumerate(row):
         if digit == ".":
+            digit = -1
+        elif not digit.isalnum():
             digit = -2
-        #if not str(digit).isalnum:
-        #    digit = -1
-        np_grid[r][d] = float(digit)
-    
-
+        
+        np_grid[r][d] = digit
 print("np_grid:\n", np_grid)
+
+
+
