@@ -1,4 +1,4 @@
-s = "£"
+s = "*"
 
 if s.isalnum():
     print("True")

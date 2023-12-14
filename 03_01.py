@@ -26,5 +26,30 @@ for r, row in enumerate(file_list):
         np_grid[r][d] = digit
 print("np_grid:\n", np_grid)
 
+numbers_to_sum = []
+string_of_digits = ""
+# now traverse each row a character at a time:
+for r, row in enumerate(np_grid):
+    for d, digit in enumerate(row):
+        
+        
+
+        #check if there is a symbol present in any direction:
+
+
+        #if not, then start adding the digits to a string
+        if not digit == -1 and not digit == -2:
+            print("digit:",digit)
+            string_of_digits = string_of_digits+str(int(digit))
+        else:
+            if not string_of_digits == "":
+                numbers_to_sum.append(int(string_of_digits))
+                string_of_digits = ""
+            
+print("numbers_to_sum:",numbers_to_sum)
+print("final sum:",sum(numbers_to_sum))          
+    
+
+
 
 
